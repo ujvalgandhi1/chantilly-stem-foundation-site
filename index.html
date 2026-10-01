@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Chantilly STEM Foundation supports student STEM organizations in Northern Virginia, including Chantilly Robotics FIRST Robotics Competition Team 612.">
+  <title>Chantilly STEM Foundation | Building What's Next</title>
+  <script>
+    (() => {
+      const param = new URLSearchParams(window.location.search).get("scoutTheme");
+      const theme =
+        param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <style>
+    :root {
+      color-scheme: light;
+      --cp-bg: #f7f4ef;
+      --cp-bg-elevated: #fcfbf8;
+      --cp-surface: #ffffff;
+      --cp-surface-soft: #f5f5f5;
+      --cp-border: #dedede;
+      --cp-border-strong: #919191;
+      --cp-text: #242424;
+      --cp-text-muted: #5c5c5c;
+      --cp-text-soft: #6f6f6f;
+      --cp-accent: #b11f4b;
+      --cp-accent-hover: #9a1a41;
+      --cp-accent-soft: rgba(177, 31, 75, 0.08);
+      --cp-accent-fg: #ffffff;
+      --cp-success: #16a34a;
+      --cp-danger: #dc2626;
+      --cp-warning: #f59e0b;
+      --cp-link: #0078d4;
+      --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
+      --cp-overlay: rgba(255, 255, 255, 0.8);
+      --cp-panel: rgba(255, 255, 255, 0.86);
+      --cp-panel-strong: rgba(255, 255, 255, 0.96);
+      --cp-sheen: rgba(255, 255, 255, 0.55);
+      --cp-highlight: rgba(177, 31, 75, 0.12);
+    }
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --cp-bg: #3d3b3a;
+      --cp-bg-elevated: #343231;
+      --cp-surface: #292929;
+      --cp-surface-soft: #2e2e2e;
+      --cp-border: #474747;
+      --cp-border-strong: #5f5f5f;
+      --cp-text: #dedede;
+      --cp-text-muted: #919191;
+      --cp-text-soft: #b0b0b0;
+      --cp-accent: #fd8ea1;
+      --cp-accent-hover: #fb7b91;
+      --cp-accent-soft: rgba(253, 142, 161, 0.14);
+      --cp-accent-fg: #1a1a1a;
+      --cp-success: #4ade80;
+      --cp-danger: #f87171;
+      --cp-warning: #fbbf24;
+      --cp-link: #4da6ff;
+      --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+      --cp-overlay: rgba(41, 41, 41, 0.88);
+      --cp-panel: rgba(41, 41, 41, 0.72);
+      --cp-panel-strong: rgba(41, 41, 41, 0.96);
+      --cp-sheen: rgba(255, 255, 255, 0.04);
+      --cp-highlight: rgba(253, 142, 161, 0.12);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--cp-bg); color: var(--cp-text); font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.55; }
+    a { color: inherit; }
+    a:focus-visible { outline: 3px solid var(--cp-link); outline-offset: 4px; }
+    .wrap { width: min(100% - 48px, 1160px); margin-inline: auto; }
+    .site-header { position: relative; z-index: 2; background: var(--cp-bg-elevated); border-bottom: 1px solid var(--cp-border); }
+    .header-inner { min-height: 86px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 13px; text-decoration: none; font-weight: 800; line-height: 1.1; letter-spacing: 0; }
+    .brand-mark { width: 38px; height: 38px; flex: none; display: grid; place-items: center; border: 3px solid var(--cp-accent); color: var(--cp-accent); font-size: 25px; font-weight: 900; line-height: 1; transform: rotate(-8deg); }
+    .brand-name { max-width: 175px; font-size: 15px; text-transform: uppercase; }
+    nav { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 12px 30px; }
+    nav a { text-decoration: none; font-size: 14px; font-weight: 700; }
+    nav a:hover, .text-link:hover { color: var(--cp-accent); }
+    .nav-cta { padding: 10px 16px; border: 1px solid var(--cp-accent); color: var(--cp-accent); }
+    .nav-cta:hover { background: var(--cp-accent); color: var(--cp-accent-fg); }
+    .hero { position: relative; isolation: isolate; min-height: min(680px, 80vh); display: flex; align-items: center; overflow: hidden; background: var(--cp-bg); }
+    .hero-photo { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 38%; }
+    .hero::before { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, var(--cp-bg) 4%, var(--cp-overlay) 46%, transparent 100%); }
+    .hero-content { padding-block: 76px 90px; }
+    .eyebrow { margin: 0 0 20px; color: var(--cp-accent); text-transform: uppercase; font-size: 12px; font-weight: 800; letter-spacing: .13em; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 760px; margin-bottom: 20px; font-size: clamp(44px, 6vw, 82px); line-height: 1.04; font-weight: 850; letter-spacing: 0; }
+    .hero-lede { max-width: 550px; margin-bottom: 30px; font-size: clamp(18px, 2vw, 22px); line-height: 1.5; font-weight: 600; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .button { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; padding: 12px 20px; background: var(--cp-accent); color: var(--cp-accent-fg); font-weight: 700; font-size: 14px; text-decoration: none; border: 1px solid var(--cp-accent); }
+    .button:hover { background: var(--cp-accent-hover); }
+    .button-outline { color: var(--cp-text); background: var(--cp-panel-strong); border-color: var(--cp-border-strong); }
+    .button-outline:hover { color: var(--cp-accent); background: var(--cp-surface); }
+    .photo-credit { position: absolute; bottom: 14px; right: 24px; font-size: 11px; color: var(--cp-text); background: var(--cp-panel-strong); padding: 4px 8px; }
+    .intro-band { background: var(--cp-text); color: var(--cp-bg-elevated); }
+    .intro-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 54px; align-items: start; padding-block: 48px; }
+    .intro-inner .eyebrow { color: var(--cp-accent); margin-bottom: 0; }
+    .intro-inner p { margin: 0; font-size: clamp(21px, 2.5vw, 30px); font-weight: 650; line-height: 1.34; }
+    section.content { padding-block: 92px; }
+    .section-head { max-width: 690px; margin-bottom: 44px; }
+    h2 { font-size: clamp(34px, 4vw, 52px); line-height: 1.12; margin-bottom: 18px; letter-spacing: 0; }
+    .section-head > p:last-child, .team-copy > p { color: var(--cp-text-muted); font-size: 18px; }
+    .focus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+    .focus-item { border-top: 3px solid var(--cp-accent); padding-top: 20px; }
+    .focus-item .num { color: var(--cp-accent); font-size: 13px; font-weight: 800; }
+    h3 { font-size: 23px; margin: 30px 0 12px; line-height: 1.24; }
+    .focus-item p { color: var(--cp-text-muted); margin-bottom: 0; }
+    .team-band { background: var(--cp-bg-elevated); border-block: 1px solid var(--cp-border); }
+    .team-inner { padding-block: 84px; display: grid; grid-template-columns: .8fr 1.2fr; gap: 60px; align-items: center; }
+    .team-number { border-left: 5px solid var(--cp-accent); padding-left: 28px; font-size: clamp(120px, 17vw, 250px); font-weight: 900; line-height: .85; color: var(--cp-accent); }
+    .team-copy h2 { margin-bottom: 20px; }
+    .text-link { display: inline-flex; align-items: center; gap: 10px; margin-top: 14px; color: var(--cp-accent); font-weight: 800; text-decoration-thickness: 2px; text-underline-offset: 6px; }
+    .involve { padding-block: 84px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 70px; align-items: end; }
+    .involve h2 { margin-bottom: 0; }
+    .involve-copy p { color: var(--cp-text-muted); font-size: 18px; }
+    .site-footer { background: var(--cp-bg-elevated); border-top: 1px solid var(--cp-border); }
+    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; padding-block: 32px; font-size: 13px; color: var(--cp-text-muted); }
+    .footer-inner p { margin: 0; }
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 36px, 1160px); }
+      .header-inner { padding-block: 16px; flex-wrap: wrap; }
+      nav { width: 100%; justify-content: space-between; gap: 12px; }
+      nav a { font-size: 13px; }
+      .hero { min-height: 670px; align-items: end; }
+      .hero-photo { height: 56%; inset: 0 0 auto; object-position: center 33%; }
+      .hero::before { background: linear-gradient(0deg, var(--cp-bg) 42%, var(--cp-overlay) 68%, transparent 100%); }
+      .hero-content { padding-block: 270px 54px; }
+      h1 { font-size: clamp(40px, 10vw, 66px); }
+      .hero-lede { font-size: 17px; }
+      .photo-credit { top: 14px; bottom: auto; right: 18px; }
+      .intro-inner, .team-inner, .involve { grid-template-columns: 1fr; gap: 28px; }
+      .intro-inner { padding-block: 36px; }
+      section.content { padding-block: 66px; }
+      .focus-grid { grid-template-columns: 1fr; gap: 34px; }
+      .focus-item h3 { margin-top: 14px; }
+      .team-inner, .involve { padding-block: 64px; }
+      .team-number { font-size: 122px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="Chantilly STEM Foundation home">
+        <span class="brand-mark" aria-hidden="true">+</span>
+        <span class="brand-name">Chantilly STEM Foundation</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#mission">Our mission</a>
+        <a href="#focus">Our focus</a>
+        <a href="#team">Team 612</a>
+        <a class="nav-cta" href="#get-involved">Get involved</a>
+      </nav>
+    </div>
+  </header>
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <img class="hero-photo" src="https://static.wixstatic.com/media/39f43d_446797004ee2432e837cc442b82525e6~mv2.jpg" alt="Chantilly Robotics students with their robot" fetchpriority="high">
+      <div class="wrap hero-content">
+        <p class="eyebrow">Northern Virginia / Student STEM</p>
+        <h1 id="hero-title">Chantilly STEM Foundation</h1>
+        <p class="hero-lede">Helping students turn curiosity into capability through hands-on STEM opportunities.</p>
+        <div class="actions">
+          <a class="button" href="#mission">Our mission <span aria-hidden="true">&nbsp;↗</span></a>
+          <a class="button button-outline" href="#team">Meet Team 612</a>
+        </div>
+      </div>
+      <a class="photo-credit" href="https://www.chantillyrobotics.org/" target="_blank" rel="noopener noreferrer">Photo: Chantilly Robotics</a>
+    </section>
+
+    <section id="mission" class="intro-band" aria-labelledby="mission-title">
+      <div class="wrap intro-inner">
+        <h2 id="mission-title" class="eyebrow">Why we exist</h2>
+        <p>We provide leadership and fundraising support for Chantilly Robotics FRC 612 Team.</p>
+      </div>
+    </section>
+
+    <section id="focus" class="content" aria-labelledby="focus-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Our focus</p>
+          <h2 id="focus-title">Make room for the next generation of problem solvers.</h2>
+          <p>Our goal is to help young people find a place to learn, build, collaborate, and lead.</p>
+        </div>
+        <div class="focus-grid">
+          <div class="focus-item">
+            <span class="num">01 / LEARN</span>
+            <h3>Hands-on STEM</h3>
+            <p>Champion opportunities where students can put science, technology, engineering, and math into practice.</p>
+          </div>
+          <div class="focus-item">
+            <span class="num">02 / GROW</span>
+            <h3>Student leadership</h3>
+            <p>Encourage teamwork, initiative, and the confidence that comes from solving real problems together.</p>
+          </div>
+          <div class="focus-item">
+            <span class="num">03 / SUPPORT</span>
+            <h3>Community backing</h3>
+            <p>Connect local support with student STEM organizations so more young people can participate.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" class="team-band" aria-labelledby="team-title">
+      <div class="wrap team-inner">
+        <div class="team-number" aria-hidden="true">612</div>
+        <div class="team-copy">
+          <p class="eyebrow">A team we support</p>
+          <h2 id="team-title">Meet Chantilly Robotics.</h2>
+          <p>FIRST Robotics Competition Team 612 brings Chantilly High School students together to design, build, and compete with robots. The team is also committed to sharing STEM education with its community.</p>
+          <a class="text-link" href="https://www.chantillyrobotics.org/" target="_blank" rel="noopener noreferrer">Visit the Team 612 website <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="get-involved" class="wrap involve" aria-labelledby="involve-title">
+      <div>
+        <p class="eyebrow">Be part of what's next</p>
+        <h2 id="involve-title">A stronger STEM community starts together.</h2>
+      </div>
+      <div class="involve-copy">
+        <p>Interested in supporting student robotics? Explore Team 612's site to learn more about the students and their work.</p>
+        <a class="button" href="https://www.chantillyrobotics.org/" target="_blank" rel="noopener noreferrer">Explore Team 612 <span aria-hidden="true">&nbsp;↗</span></a>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>Chantilly STEM Foundation<br>501(c)(3) nonprofit / EIN 84-2698295</p>
+    </div>
+  </footer>
+</body>
+</html>
