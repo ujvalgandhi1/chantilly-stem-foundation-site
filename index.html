@@ -114,9 +114,16 @@
     .team-number { border-left: 5px solid var(--cp-accent); padding-left: 28px; font-size: clamp(120px, 17vw, 250px); font-weight: 900; line-height: .85; color: var(--cp-accent); }
     .team-copy h2 { margin-bottom: 20px; }
     .text-link { display: inline-flex; align-items: center; gap: 10px; margin-top: 14px; color: var(--cp-accent); font-weight: 800; text-decoration-thickness: 2px; text-underline-offset: 6px; }
-    .involve { padding-block: 84px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 70px; align-items: end; }
-    .involve h2 { margin-bottom: 0; }
-    .involve-copy p { color: var(--cp-text-muted); font-size: 18px; }
+    .involve { padding-block: 84px; }
+    .involve-head { max-width: 720px; margin-bottom: 46px; }
+    .involve-head p:last-child { margin-bottom: 0; color: var(--cp-text-muted); font-size: 18px; }
+    .action-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
+    .action-card { display: flex; flex-direction: column; align-items: flex-start; padding: 34px; background: var(--cp-surface); border: 1px solid var(--cp-border); border-radius: 16px; box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.14); }
+    .action-card h3 { margin: 14px 0 10px; }
+    .action-card p { color: var(--cp-text-muted); }
+    .action-foot { margin-top: auto; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+    .button-pending { background: var(--cp-surface-soft); color: var(--cp-text-soft); border-color: var(--cp-border); cursor: default; }
+    .action-note { margin: 0; font-size: 13px; color: var(--cp-text-soft); }
     .site-footer { background: var(--cp-bg-elevated); border-top: 1px solid var(--cp-border); }
     .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; padding-block: 32px; font-size: 13px; color: var(--cp-text-muted); }
     .footer-inner p { margin: 0; }
@@ -132,12 +139,15 @@
       h1 { font-size: clamp(40px, 10vw, 66px); }
       .hero-lede { font-size: 17px; }
       .photo-credit { top: 14px; bottom: auto; right: 18px; }
-      .intro-inner, .team-inner, .involve { grid-template-columns: 1fr; gap: 28px; }
+      .intro-inner, .team-inner { grid-template-columns: 1fr; gap: 28px; }
       .intro-inner { padding-block: 36px; }
       section.content { padding-block: 66px; }
       .focus-grid { grid-template-columns: 1fr; gap: 34px; }
       .focus-item h3 { margin-top: 14px; }
       .team-inner, .involve { padding-block: 64px; }
+      .involve-head { margin-bottom: 32px; }
+      .action-grid { grid-template-columns: 1fr; gap: 20px; }
+      .action-card { padding: 26px; }
       .team-number { font-size: 122px; }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -220,13 +230,30 @@
     </section>
 
     <section id="get-involved" class="wrap involve" aria-labelledby="involve-title">
-      <div>
+      <div class="involve-head">
         <p class="eyebrow">Be part of what's next</p>
         <h2 id="involve-title">A stronger STEM community starts together.</h2>
+        <p>Interested in supporting student robotics? Stay informed about the season ahead, or help fund the students doing the work.</p>
       </div>
-      <div class="involve-copy">
-        <p>Interested in supporting student robotics? Explore Team 612's site to learn more about the students and their work.</p>
-        <a class="button" href="https://www.chantillyrobotics.org/" target="_blank" rel="noopener noreferrer">Explore Team 612 <span aria-hidden="true">&nbsp;↗</span></a>
+      <div class="action-grid">
+        <div class="action-card">
+          <span class="eyebrow">Stay informed</span>
+          <h3>Sign up for updates</h3>
+          <p>Get competition schedules, build season updates, and team announcements in your inbox.</p>
+          <div class="action-foot">
+            <a class="button" href="https://lp.constantcontactpages.com/sl/l0srZXN/STEMFoundationSignup" target="_blank" rel="noopener noreferrer">Join our mailing list <span aria-hidden="true">&nbsp;↗</span></a>
+          </div>
+        </div>
+        <div class="action-card">
+          <span class="eyebrow">Support the team</span>
+          <h3>Make a donation</h3>
+          <p>Gifts help cover registration, materials, and travel so more students can compete.</p>
+          <div class="action-foot">
+            <p class="action-note">Our DonorBox page is on the way — check back soon.</p>
+            <!-- Replace with: <a class="button" href="DONORBOX_CAMPAIGN_URL" target="_blank" rel="noopener noreferrer">Donate</a> -->
+            <span class="button button-pending" role="link" aria-disabled="true">Donate — coming soon</span>
+          </div>
+        </div>
       </div>
     </section>
   </main>
